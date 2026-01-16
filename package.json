@@ -13,5 +13,8 @@
   "license": "MIT",
   "scripts": {
     "start": "electron . --no-sandbox"
+  },
+  "devDependencies": {
+    "electron": "^39.2.7"
   }
 }
