@@ -1,0 +1,254 @@
+body {
+    user-select: none;
+    -webkit-app-region: drag;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: "Averia Sans Libre", sans-serif !important;
+    color: white;
+    background-color: #0d0627ef;
+    padding: 20px;
+}
+
+/* Ensure interactive elements are clickable */
+button,
+input,
+select,
+a {
+    -webkit-app-region: no-drag;
+    font-family: "Averia Sans Libre", sans-serif !important;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    /* Always flex, just hidden by opacity */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    transition: opacity 0.5s ease-in-out;
+    margin-top: 28px;
+
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Backgrounds */
+#home-screen {
+    background-image: url('./img/image-bg-home.png');
+}
+
+#focus-screen {
+    background-image: url('./img/image-bg-start.png');
+    justify-content: flex-start;
+    padding-top: 60px;
+}
+
+#break-screen {
+    background-image: url('./img/image-bg-stop.png');
+    justify-content: flex-start;
+    padding-top: 60px;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #6a1b9a;
+    /* Initial color */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    /* On top of everything */
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.close-btn:hover {
+    background-color: #ff4081;
+    /* Red/Pink on hover */
+    transform: scale(1.1);
+}
+
+/* Layout for Home Screen */
+#home-screen .title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    /* Pixel-style text shadow approximation */
+    text-shadow: 4px 4px 0px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-top: -30px;
+}
+
+.timer-config {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    /* Constrain width */
+    max-width: 350px;
+    background: transparent;
+    /* Removed container background for cleaner look */
+    padding: 10px;
+}
+
+.timer-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Timer Display Container Styling based on image */
+.time-display {
+    font-size: 2rem;
+    font-weight: 900;
+    border-radius: 12px;
+    padding: 5px 20px;
+    width: 120px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Focus Time specific */
+#focus-time-display {
+    background-color: #311b3b;
+    /* Dark purple deep */
+    color: white;
+}
+
+/* Break Time specific */
+#break-time-display {
+    background-color: #9c4d6f;
+    /* Lighter pinkish purple */
+    color: white;
+}
+
+/* Timer Control Buttons (+ / -) */
+.control-btn {
+    background: rgba(105, 27, 154, 0.692);
+    border: 2px solid #8c52ff;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 900;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.control-btn:hover {
+    background: rgba(106, 27, 154, 0.8);
+    transform: scale(1.05);
+}
+
+/* Action Buttons Area */
+.action-row {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    /* Space out INICIAR and X2 */
+    width: 90%;
+    max-width: 420px;
+    align-items: flex-end;
+
+}
+
+.start-btn {
+    background: linear-gradient(180deg, #7c4dff 0%, #651fff 100%);
+    color: white;
+    border: none;
+    padding: 12px 60px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.start-btn:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0px #451b94;
+}
+
+.start-btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.loop-btn {
+    background: linear-gradient(135deg, #7c4dff, #b388ff);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #471f7a6e;
+    width: 100%;
+    height: 50px;
+}
+
+/* States on running screens */
+.state-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.large-timer {
+    font-size: 5rem;
+    font-weight: 900;
+    text-shadow: 3px 3px 0 #000;
+    margin: 10px 0;
+}
+
+.progress-container {
+    width: 90%;
+    height: 35px;
+    background: rgba(50, 20, 60, 0.6);
+    border: 2px solid rgba(120, 80, 160, 0.5);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #7c4dff, #ea80fc);
+    transition: width 1s linear;
+}

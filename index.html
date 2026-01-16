@@ -4,11 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pomodoro Widget</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <h1>Hola</h1>
+    <!-- Close Button -->
+    <button id="btn-close" class="close-btn"></button>
+
+    <!-- Home Screen -->
+    <div id="home-screen" class="screen">
+        <div class="title">POMODORO</div>
+
+        <div class="timer-config">
+            <div class="timer-row">
+                <button id="btn-focus-minus" class="control-btn">-</button>
+                <span id="focus-time-display" class="time-display">25:00</span>
+                <button id="btn-focus-plus" class="control-btn">+</button>
+            </div>
+            <div class="timer-row">
+                <button id="btn-break-minus" class="control-btn">-</button>
+                <span id="break-time-display" class="time-display">5:00</span>
+                <button id="btn-break-plus" class="control-btn">+</button>
+            </div>
+        </div>
+
+        <div class="action-row">
+            <button id="btn-start" class="start-btn">INICIAR</button>
+            <button id="btn-loop" class="loop-btn">X1</button>
+        </div>
+    </div>
+
+    <!-- Focus Screen -->
+    <div id="focus-screen" class="screen">
+        <div class="container-title">
+            <div class="state-title">FOCO!</div>
+        </div>
+        <div id="focus-timer-display" class="large-timer">25:00</div>
+
+        <div class="progress-container">
+            <div id="focus-progress-bar" class="progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Break Screen -->
+    <div id="break-screen" class="screen">
+        <div class="container-title">
+            <div class="state-title">DESCANSO</div>
+        </div>
+        <div id="break-timer-display" class="large-timer">5:00</div>
+    </div>
+
+    <script src="renderer.js"></script>
 </body>
 
 </html>
