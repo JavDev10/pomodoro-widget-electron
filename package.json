@@ -1,0 +1,17 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "A simple Pomodoro widget built with Electron.",
+  "keywords": [
+    "electron",
+    "pomodoro",
+    "timer",
+    "widget"
+  ],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron . --no-sandbox"
+  }
+}
