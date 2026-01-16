@@ -38,6 +38,9 @@
             <button id="btn-start" class="start-btn">INICIAR</button>
             <button id="btn-loop" class="loop-btn">X1</button>
         </div>
+
+        <!-- Settings Button -->
+        <button id="btn-settings" class="settings-btn" title="Configuración">⚙️</button>
     </div>
 
     <!-- Focus Screen -->
@@ -58,6 +61,51 @@
             <div class="state-title">DESCANSO</div>
         </div>
         <div id="break-timer-display" class="large-timer">5:00</div>
+    </div>
+
+    <!-- Settings Screen -->
+    <div id="settings-screen" class="screen">
+
+        <div class="state-title" id="settings-title">AJUSTES</div>
+
+
+        <div class="settings-container">
+            <!-- Volume Control -->
+            <div class="setting-item">
+                <label id="lbl-volume">Volumen</label>
+                <input type="range" id="volume-slider" min="0" max="100" value="50">
+            </div>
+
+            <!-- Background Images -->
+            <div class="setting-item">
+                <label id="lbl-bg-home">Fondo Inicio (URL)</label>
+                <input type="text" id="bg-home-input" placeholder="https://..." class="input-text">
+            </div>
+
+            <div class="setting-item">
+                <label id="lbl-bg-focus">Fondo Foco (URL)</label>
+                <input type="text" id="bg-focus-input" placeholder="https://..." class="input-text">
+            </div>
+
+            <div class="setting-item">
+                <label id="lbl-bg-break">Fondo Descanso (URL)</label>
+                <input type="text" id="bg-break-input" placeholder="https://..." class="input-text">
+            </div>
+            <div class="setting-item-footer">
+                <div class="setting-item">
+                    <label id="lbl-lang">Idioma</label>
+                    <div class="lang-toggle">
+                        <button id="btn-lang-es" class="lang-btn active">ES</button>
+                        <button id="btn-lang-en" class="lang-btn">EN</button>
+                    </div>
+                </div>
+
+                <!-- Back Button -->
+                <button id="btn-settings-back" class="back-btn">VOLVER</button>
+            </div>
+            <!-- Language -->
+
+        </div>
     </div>
 
     <script src="renderer.js"></script>
